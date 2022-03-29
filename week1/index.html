@@ -1,0 +1,47 @@
+<html>
+  <head>
+    <title>My First page!</title>
+  </head>
+  <body>
+    <div id="app">
+      Hello I have a message of: {{ message }}
+      <br>
+      The length of my message is {{ message.length }}
+
+      <input type=text v-model="message" />
+      <br>
+
+      <div v-if="message.length > 10">
+        The message is long!
+      </div>
+      <strong v-else-if="message === 'password'">You found the password!</strong>
+      <span v-else>
+        The message is short!
+      </span>
+
+      <h2>Thing on the farm:</h2>
+      <ul>
+        <li v-for="(item, i) in list">{{i}}: {{ item }}</li>
+      </ul>
+
+      <h2>Thing on the farm (Obj):</h2>
+      <ul>
+        <li v-for="(val, key) in list">{{key}}: {{ val }}</li>
+      </ul>
+    </div>
+
+
+    <script src="https://unpkg.com/vue@3"></script>
+    <script>
+      Vue.createApp({
+        data() {
+          return {
+            message: 'Hello Vue!',
+            list: ['cow', 'man', 'house'],
+            obj: {animal: 'cow', human: 'man', building: 'house'}
+          }
+        }
+      }).mount('#app')
+    </script>
+  </body>
+</html>
