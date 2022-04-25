@@ -1,0 +1,15 @@
+{
+  "name": "npm-example",
+  "version": "1.0.0",
+  "description": "My first npm/node program ",
+  "main": "index.js",
+  "scripts": {
+    "test": "echo \"Error: no test specified\" && exit 1"
+  },
+  "author": "Uros Jankovic",
+  "license": "ISC",
+  "dependencies": {
+    "bootstrap": "^5.1.3",
+    "commander": "^9.2.0"
+  }
+}
