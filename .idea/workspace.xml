@@ -6,6 +6,14 @@
   <component name="ChangeListManager">
     <list default="true" id="5d4fcf08-e045-4263-8740-c23068e61781" name="Changes" comment="">
       <change beforePath="$PROJECT_DIR$/.idea/workspace.xml" beforeDir="false" afterPath="$PROJECT_DIR$/.idea/workspace.xml" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/class-website/package-lock.json" beforeDir="false" afterPath="$PROJECT_DIR$/class-website/package-lock.json" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/class-website/package.json" beforeDir="false" afterPath="$PROJECT_DIR$/class-website/package.json" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/class-website/src/App.vue" beforeDir="false" afterPath="$PROJECT_DIR$/class-website/src/App.vue" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/class-website/src/components/HelloWorld.vue" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/class-website/src/main.js" beforeDir="false" afterPath="$PROJECT_DIR$/class-website/src/main.js" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/class-website/src/router/index.js" beforeDir="false" afterPath="$PROJECT_DIR$/class-website/src/router/index.js" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/class-website/src/views/ClassView.vue" beforeDir="false" afterPath="$PROJECT_DIR$/class-website/src/views/ClassView.vue" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/class-website/src/views/HomeView.vue" beforeDir="false" afterPath="$PROJECT_DIR$/class-website/src/views/HomeView.vue" afterDir="false" />
     </list>
     <option name="SHOW_DIALOG" value="false" />
     <option name="HIGHLIGHT_CONFLICTS" value="true" />
@@ -15,9 +23,9 @@
   <component name="FileTemplateManagerImpl">
     <option name="RECENT_TEMPLATES">
       <list>
+        <option value="Vue Single File Component" />
         <option value="HTML File" />
         <option value="JavaScript File" />
-        <option value="Vue Single File Component" />
       </list>
     </option>
   </component>
@@ -45,6 +53,16 @@
     <property name="settings.editor.selected.configurable" value="preferences.lookFeel" />
     <property name="vue.rearranger.settings.migration" value="true" />
   </component>
+  <component name="RunManager">
+    <configuration name="index.html" type="JavascriptDebugType" temporary="true" nameIsGenerated="true" uri="http://localhost:63342/class-code/week7/index.html" useBuiltInWebServerPort="true">
+      <method v="2" />
+    </configuration>
+    <recent_temporary>
+      <list>
+        <item itemvalue="JavaScript Debug.index.html" />
+      </list>
+    </recent_temporary>
+  </component>
   <component name="SpellCheckerSettings" RuntimeDictionaries="0" Folders="0" CustomDictionaries="0" DefaultDictionary="application-level" UseSingleDictionary="true" transferred="true" />
   <component name="TaskManager">
     <task active="true" id="Default" summary="Default task">
@@ -58,6 +76,7 @@
       <workItem from="1649709355220" duration="2090000" />
       <workItem from="1650924500096" duration="3976000" />
       <workItem from="1651531372404" duration="425000" />
+      <workItem from="1652140827654" duration="1909000" />
     </task>
     <servers />
   </component>

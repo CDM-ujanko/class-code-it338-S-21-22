@@ -1,20 +1,35 @@
 <template>
-  <nav>
-    <router-link to="/">Home</router-link> |
-    <router-link to="/about">About</router-link> |
-    <router-link v-for="c in data.classes" :key="c.key" :to="'/' + c.key">{{ c.key }} | </router-link>
-  </nav>
-  <router-view/>
+  <SiteNavigation :classes="classes"/>
+
+  <div class="container py-3">
+    <router-view/>
+  </div>
 </template>
 
 <script>
 import data from '@/data/data';
 
+import SiteNavigation from '@/components/SiteNavigation';
+
 export default {
   name: 'App',
+  components: {
+    SiteNavigation
+  },
   data() {
     return {
       data: data
+    }
+  },
+
+  computed: {
+    classes() {
+      return Object.keys(data.classes).map((key) => (
+          {
+            key: key,
+            lectures: data.classes[key].lectures.map(w => ({name: w.name, hash: w.hash}))
+          }
+      ))
     }
   }
 }
@@ -23,22 +38,6 @@ export default {
 <style lang="scss">
 #app {
   font-family: Avenir, Helvetica, Arial, sans-serif;
-  -webkit-font-smoothing: antialiased;
-  -moz-osx-font-smoothing: grayscale;
-  text-align: center;
-  color: #2c3e50;
 }
 
-nav {
-  padding: 30px;
-
-  a {
-    font-weight: bold;
-    color: #2c3e50;
-
-    &.router-link-exact-active {
-      color: #42b983;
-    }
-  }
-}
 </style>

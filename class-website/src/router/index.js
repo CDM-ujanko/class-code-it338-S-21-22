@@ -17,13 +17,21 @@ const routes = [
   }, {
     path: '/:class(\\w{2}\\d{3}-\\w{1,2}-\\d{2}-\\d{2})',
     name: 'Class',
-    component: () => import(/* webpackChunkName: "about" */ '../views/ClassView.vue')
+    component: () => import(/* webpackChunkName: "about" */ '../views/ClassView.vue'),
+    // Note: not needed for example only.
+    // children: [{
+    //   path: 'home',
+    //   name: 'Class home',
+    //   component: () => import(/* webpackChunkName: "about" */ '../views/ClassView.vue'),
+    // }]
   }
 ]
 
 const router = createRouter({
   history: createWebHistory(process.env.BASE_URL),
-  routes
+  routes,
+  linkActiveClass: 'active',
+  linkExactActiveClass: 'exact-active',
 })
 
 export default router
