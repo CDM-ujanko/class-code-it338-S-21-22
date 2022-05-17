@@ -15,10 +15,10 @@
         <div class="navbar-nav">
           <router-link to="/" class="nav-link">Home</router-link>
           <router-link v-for="c in classes"
-              :key="c.key"
-              :to="'/' + c.key"
+              :key="c"
+              :to="'/' + c"
               class="nav-link"
-          >{{ c.key }}
+          >{{ c }}
           </router-link>
           <router-link to="/about" class="nav-link">About</router-link>
         </div>

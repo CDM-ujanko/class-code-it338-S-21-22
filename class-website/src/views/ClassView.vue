@@ -9,7 +9,7 @@
         <li v-for="(link, i) in classData.links" :key="i" class="list-group-item">
           <a :href="link.path" target="_blank">
             {{ link.name }}
-          </a> - {{ link.description}}
+          </a> - {{ link.description }}
         </li>
       </ul>
     </section>
@@ -34,18 +34,31 @@
   </main>
 </template>
 <script>
-import data from '@/data/data';
+import axios from 'axios';
 
 export default {
   name: 'ClassView',
   data() {
     return {
+      classData: {},
     }
   },
 
-  computed: {
-    classData() {
-      return data.classes[this.$route.params.class]
+  mounted() {
+    this.fetchData(this.$route.params.class);
+  },
+
+  watch: {
+    '$route.params.class': 'fetchData'
+  },
+
+  methods: {
+    fetchData(key) {
+      axios.get(`http://localhost:3030/class/${key}`)
+          .then(resp => {
+            this.classData = resp.data;
+          })
+          .catch(console.error)
     }
   }
 }
@@ -67,15 +80,16 @@ export default {
 }
 
 
-
 pre, code {
   font-family: monospace, monospace;
 }
+
 pre {
   overflow: auto;
   max-width: 100%;
   background: #054561;
 }
+
 pre > code {
   display: block;
   padding: 1rem;

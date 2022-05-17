@@ -7,9 +7,8 @@
 </template>
 
 <script>
-import data from '@/data/data';
-
 import SiteNavigation from '@/components/SiteNavigation';
+import axios from 'axios';
 
 export default {
   name: 'App',
@@ -18,18 +17,29 @@ export default {
   },
   data() {
     return {
-      data: data
+      classes: []
     }
   },
 
-  computed: {
-    classes() {
-      return Object.keys(data.classes).map((key) => (
-          {
-            key: key,
-            lectures: data.classes[key].lectures.map(w => ({name: w.name, hash: w.hash}))
-          }
-      ))
+  mounted() {
+    this.fetchClasses();
+  },
+
+  methods: {
+    async fetchClasses() {
+      // axios.get(`http://localhost:3030/classes`)
+      //     .then(resp => {
+      //       console.log('We got the response back!');
+      //       this.classes = resp.data;
+      //     })
+      //     .catch(console.error)
+
+      try {
+        let resp = await axios.get(`http://localhost:3030/classes`);
+        this.classes = resp.data;
+      } catch (err) {
+        console.error(err);
+      }
     }
   }
 }
