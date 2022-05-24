@@ -15,19 +15,26 @@ async function create (cName, data) {
   return await collection.insertOne(data);
 }
 
-async function read (cName, key) {
+async function keys (cName, key) {
   let collection = db.collection(cName);
-  return await collection.findOne({key: key});
+  return await collection.find({})
+      .project({[key]: true, '_id': false})
+      .toArray()
 }
 
-async function update (cName, key, data) {
+async function read (cName, key, value) {
   let collection = db.collection(cName);
-  return await collection.updateOne({key: key}, data);
+  return await collection.findOne({[key]: value});
 }
 
-async function destroy (cName, key) {
+async function update (cName, key, value, data) {
   let collection = db.collection(cName);
-  let doc = await collection.findOne({key: key});
+  return await collection.updateOne({[key]: value}, data);
+}
+
+async function destroy (cName, key, value) {
+  let collection = db.collection(cName);
+  let doc = await collection.findOne({[key]: value});
   if (!doc) {
     throw Error('No such class');
   }
@@ -37,6 +44,7 @@ async function destroy (cName, key) {
 
 export {
   create,
+  keys,
   read,
   update,
   destroy
