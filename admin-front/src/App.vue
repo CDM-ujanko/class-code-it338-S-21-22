@@ -19,6 +19,14 @@
       name() {
         return this.$store.getters['name']
       }
+    },
+
+    mounted() {
+      this.$store.dispatch('getUserFromStorage');
+
+      if (!this.isLoggedIn) {
+        this.$router.push('/login');
+      }
     }
   }
 </script>

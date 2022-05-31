@@ -1,5 +1,7 @@
 import { createStore } from 'vuex'
 
+const LOCAL_STORAGE_KEY = 'class-admin-key';
+
 export default createStore({
   state: {
     user: {}
@@ -19,8 +21,24 @@ export default createStore({
   mutations: {
     setUser(state, user) {
       state.user = user;
+      try {
+        localStorage.setItem(LOCAL_STORAGE_KEY, JSON.stringify(user));
+      } catch (e) {
+        console.error(e);
+      }
     }
   },
+
   actions: {
+    getUserFromStorage(context) {
+      try {
+        let user = JSON.parse(localStorage.getItem(LOCAL_STORAGE_KEY));
+        if (user) {
+          context.commit('setUser', user);
+        }
+      } catch (e) {
+        console.error(e);
+      }
+    }
   }
 })
