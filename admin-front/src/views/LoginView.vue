@@ -27,6 +27,18 @@ export default {
     }
   },
 
+  mounted() {
+    if (this.isLoggedIn) {
+      this.$router.push('/');
+    }
+  },
+
+  computed: {
+    isLoggedIn() {
+      return this.$store.getters['isLoggedIn']
+    },
+  },
+
   methods: {
     login() {
       console.log('login!');
